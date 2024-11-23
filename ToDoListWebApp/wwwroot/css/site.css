@@ -1,0 +1,118 @@
+
+
+html {
+  font-size: 14px;
+  
+}
+
+@media (min-width: 768px) {
+  html {
+    font-size: 16px;
+  }
+}
+
+main-body{
+    color: black;
+}
+
+html {
+  position: relative;
+  min-height: 100%;
+}
+
+body {
+  margin-bottom: 60px;
+  background-color: beige;
+}
+
+.navbar-brand{
+    
+    
+}
+    
+
+
+
+/* CSS for To-Do-List form below: */
+
+
+.mainToDoForm{
+   
+   
+   padding: 50px;
+}
+
+#todotitle {
+    font-family: "Times New Roman", Times, serif;
+    font-size: 60px;
+    letter-spacing: 2px;
+    word-spacing: 2px;
+    color: #000000;
+    font-weight: 400;
+    text-decoration: rgb(68, 68, 68);
+    font-style: italic;
+    font-variant: small-caps;
+    text-transform: none;
+    position: absolute;
+    top:55px;
+    left: 0;
+    width: 100%;
+    text-align: center;
+}
+
+#todothankyoumessage {
+    font-family: "Times New Roman", Times, serif;
+    font-size: 40px;
+    letter-spacing: 2px;
+    word-spacing: 2px;
+    color: #000000;
+    font-weight: 400;
+    text-decoration: rgb(68, 68, 68);
+    font-style: italic;
+    font-variant: small-caps;
+    text-align: center;
+    text-transform: none;
+}
+
+#todomessage {
+    font-family: "Times New Roman", Times, serif;
+    font-size: 20px;
+    letter-spacing: 2px;
+    word-spacing: 2px;
+    color: #000000;
+    font-weight: 400;
+    text-decoration: rgb(68, 68, 68);
+    font-style: italic;
+    font-variant: small-caps;
+    text-align: center;
+    text-transform: none;
+}
+
+.submittaskbutton {
+ 
+   
+    color: black;
+    font-size: 20px;
+    line-height: 16px;
+    padding: 7px;
+    border-radius: 5px;
+    font-family: "Times New Roman", Times, serif;
+    font-weight: 300;
+    text-decoration: black;
+    
+   
+}
+
+.submittaskbutton:hover {
+        background: #808080
+    }
+
+.submittaskbutton:active {
+      background:blue;
+    }
+
+
+.form-control{
+    text-align: center;
+}
+
