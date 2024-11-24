@@ -1,4 +1,5 @@
-﻿@{
+﻿@model List<ToDoListItem>
+@{
     ViewData["Title"] = "Home Page";
 }
 
@@ -8,15 +9,33 @@
     <link rel="stylesheet" href="~/css/site.css" />
 
 <div class= "mainToDoForm">
+
     <h1 id="todotitle">To-Do-List</h1>
     <h2 id ="todothankyoumessage">Thank you for using this website!</h2>
     <h3 id="todomessage">Enter your tasks below</h3>
+
+
+
+
+
+
     <form method= "post" action = "/Home/AddTask">
     <div class="form-group">
-    <input type ="text" name="task" class="form-control" placeholder="Enter a new task" required />
+        <input type ="text" name="task" class="form-control" placeholder="Enter a new task" required />
     </div>    
     <button type="submit" class="submittaskbutton">Add Task</button>
     </form>
     
 
+</div>
+
+<h3 class ="listitle">Your List:</h3>
+
+<div class="userlist">
+    <ul>
+        @foreach(var item in Model)
+        {
+            <li>@item.Task</li>
+        }
+    </ul>
 </div>

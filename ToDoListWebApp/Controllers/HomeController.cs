@@ -13,10 +13,23 @@ namespace ToDoListWebApp.Controllers
             _logger = logger;
         }
 
+
+        
+
         public IActionResult Index()
         {
-            return View();
+            return View(UserToDoList.UserList);
         }
+
+        public IActionResult AddTask(string task)
+        {
+            var taskListItem = new ToDoListItem(task);  
+            UserToDoList.UserList.Add(taskListItem);
+
+            return RedirectToAction("Index");
+        }
+
+        
 
         public IActionResult Privacy()
         {

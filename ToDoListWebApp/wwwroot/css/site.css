@@ -25,12 +25,6 @@ body {
   background-color: beige;
 }
 
-.navbar-brand{
-    
-    
-}
-    
-
 
 
 /* CSS for To-Do-List form below: */
@@ -112,7 +106,30 @@ body {
     }
 
 
-.form-control{
-    text-align: center;
+.navbartest {
+    font-family: 'Times New Roman', Times, serif;
+    display: flex;
+    justify-content:center;
+    align-items: center;
+    
 }
 
+
+
+/* CSS for Users Printed List*/
+
+.listitle{
+    text-align: center;
+    font-family: 'Times New Roman', Times, serif;
+    font-size:40px;
+    
+    
+}
+
+.userlist {
+    font-size:30px;
+    font-family:'Times New Roman', Times, serif;
+    outline: 2px solid #000000;
+    outline-offset: 0px;
+
+}
