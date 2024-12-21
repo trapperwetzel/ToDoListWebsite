@@ -6,7 +6,7 @@ namespace ToDoListWebApp.Models
     {
         static public List<ToDoListItem> UserList { get; set; } = new List<ToDoListItem>();
 
-
+        static public int NextId => UserList.Count > 0 ? UserList.Max(t => t.ID) + 1 : 1;
         public UserToDoList()
         {
 
@@ -15,6 +15,7 @@ namespace ToDoListWebApp.Models
         // Constructor 
         public UserToDoList (List<ToDoListItem> AUserToDoList)
         {
+
             UserList = AUserToDoList;
             
         }
@@ -22,8 +23,9 @@ namespace ToDoListWebApp.Models
 
         // Methods
 
-        internal void AddItem(ToDoListItem entry)
+        public void AddItem(ToDoListItem entry)
         {
+            entry.ID = NextId;
             UserList.Add(entry);
         }
 

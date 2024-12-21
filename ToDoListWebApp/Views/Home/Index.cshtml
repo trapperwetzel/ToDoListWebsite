@@ -32,10 +32,35 @@
 <h3 class ="listitle">Your List:</h3>
 
 <div class="userlist">
-    <ul>
-        @foreach(var item in Model)
-        {
-            <li>@item.Task</li>
-        }
-    </ul>
+    <h3></h3>
+    <table class="table">
+        <thead>
+            <tr>
+                
+                <th>Task</th>
+                <th>Completed</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    
+                    <td>@item.Task</td>
+                    <td>@(item.IsCompleted ? "Yes" : "No")</td>
+                    <td>
+                        @if (!item.IsCompleted)
+                        {
+                            <!-- Form to Mark as Completed -->
+                            <form method="post" action="/Home/MarkAsCompleted">
+                                <input type="hidden" name="id" value="@item.ID" />
+                                <button type="submit" class="btn btn-success">Mark as Completed</button>
+                            </form>
+                        }
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
 </div>

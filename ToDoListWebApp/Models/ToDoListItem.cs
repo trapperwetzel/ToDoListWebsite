@@ -3,27 +3,29 @@
     public class ToDoListItem
     {
 
+        public static int _idCounter = 0;
+
         public int ID { get; set; }
         public string Task { get; set; }
-
         public bool IsCompleted { get; set; }
 
-        public ToDoListItem():this(-1,"N/A",false)
+        public ToDoListItem()
         {
-
+            ID = ++_idCounter; // Automatically increment ID
+            Task = "N/A";
+            IsCompleted = false;
         }
 
-        public ToDoListItem(string aTask):this(1,aTask,false)
+        public ToDoListItem(string task) : this()
         {
-            this.Task = aTask;
+            Task = task;
         }
-        public ToDoListItem(int aID, string aTask, bool aComplete)
+
+        public ToDoListItem(int id, string task, bool isCompleted)
         {
-
-            this.ID = aID;
-            this.Task = aTask;
-            this.IsCompleted = aComplete;
-
+            ID = id;
+            Task = task;
+            IsCompleted = isCompleted;
         }
 
 

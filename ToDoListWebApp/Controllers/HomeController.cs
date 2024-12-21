@@ -13,9 +13,6 @@ namespace ToDoListWebApp.Controllers
             _logger = logger;
         }
 
-
-        
-
         public IActionResult Index()
         {
             return View(UserToDoList.UserList);
@@ -23,13 +20,26 @@ namespace ToDoListWebApp.Controllers
 
         public IActionResult AddTask(string task)
         {
-            var taskListItem = new ToDoListItem(task);  
-            UserToDoList.UserList.Add(taskListItem);
+            var taskListItem = new ToDoListItem { Task = task };
+            var userToDoList = new UserToDoList();
+            userToDoList.AddItem(taskListItem);
 
             return RedirectToAction("Index");
         }
 
-        
+        public IActionResult MarkAsCompleted(int id)
+        {
+            
+            var task = UserToDoList.UserList.FirstOrDefault(t => t.ID == id);
+
+            if (task != null)
+            {
+                task.IsCompleted = true;
+            }
+
+            
+            return RedirectToAction("Index");
+        }
 
         public IActionResult Privacy()
         {
