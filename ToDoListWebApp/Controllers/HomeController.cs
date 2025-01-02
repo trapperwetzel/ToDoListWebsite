@@ -47,6 +47,21 @@ namespace ToDoListWebApp.Controllers
             return RedirectToAction("Index");
         }
 
+        public IActionResult RemoveTask(int id)
+        {
+            var task = _context.ToDoListItems.FirstOrDefault(t => t.ID == id);
+            if (task != null)
+            {
+                _context.ToDoListItems.Remove(task);
+                _context.SaveChanges(); // Commit the changes
+            }
+
+            return RedirectToAction("Index");
+        }
+
+
+
+
         public IActionResult Privacy()
         {
             return View();
