@@ -1,3 +1,6 @@
+using Microsoft.EntityFrameworkCore;
+using ToDoListWebApp.Models;
+
 namespace ToDoListWebApp
 {
     public class Program
@@ -9,13 +12,19 @@ namespace ToDoListWebApp
             // Add services to the container.
             builder.Services.AddControllersWithViews();
 
+            // Register the DbContext
+            builder.Services.AddDbContext<ToDoListContext>(options =>
+            {
+                options.UseSqlServer("Server=(localdb)\\MSSQLLocalDB;Database=ToDoAppDB;Trusted_Connection=True;MultipleActiveResultSets=true");
+            });
+                
+
             var app = builder.Build();
 
             // Configure the HTTP request pipeline.
             if (!app.Environment.IsDevelopment())
             {
                 app.UseExceptionHandler("/Home/Error");
-                // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
                 app.UseHsts();
             }
 
@@ -34,3 +43,4 @@ namespace ToDoListWebApp
         }
     }
 }
+

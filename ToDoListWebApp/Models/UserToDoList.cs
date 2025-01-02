@@ -4,20 +4,18 @@ namespace ToDoListWebApp.Models
 {
     public class UserToDoList
     {
-        static public List<ToDoListItem> UserList { get; set; } = new List<ToDoListItem>();
+        private readonly ToDoListContext _context;
 
-        static public int NextId => UserList.Count > 0 ? UserList.Max(t => t.ID) + 1 : 1;
-        public UserToDoList()
+        //constructor
+        public UserToDoList(ToDoListContext context)
         {
+            _context = context;
 
         }
 
-        // Constructor 
-        public UserToDoList (List<ToDoListItem> AUserToDoList)
+        public List<ToDoListItem> GetAllItems()
         {
-
-            UserList = AUserToDoList;
-            
+            return _context.ToDoListItems.ToList();
         }
 
 
@@ -25,26 +23,33 @@ namespace ToDoListWebApp.Models
 
         public void AddItem(ToDoListItem entry)
         {
-            entry.ID = NextId;
-            UserList.Add(entry);
+            _context.ToDoListItems.Add(entry);
+            _context.SaveChanges(); // Commits changes to the database
         }
 
 
 
-
-
-        
-
-        internal void RemoveFromList(int number)
+        public void RemoveFromList(int id)
         {
-            for (int i = 0; i < UserList.Count; i++)
+            var itemToRemove = _context.ToDoListItems.FirstOrDefault(item => item.ID == id);
+            if (itemToRemove != null)
             {
-                if (i == number - 1)
-                {
-                    UserList.Remove(UserList[i]);
-                    break;
-                }
+                _context.ToDoListItems.Remove(itemToRemove);
+                _context.SaveChanges(); // Commits changes to the database
             }
         }
+
+        public void MarkAsCompleted(int id)
+        {
+            var item = _context.ToDoListItems.FirstOrDefault(t => t.ID == id);
+            if (item != null)
+            {
+                item.IsCompleted = true;
+                _context.SaveChanges();
+            }
+        }
+
+
+
     }
 }

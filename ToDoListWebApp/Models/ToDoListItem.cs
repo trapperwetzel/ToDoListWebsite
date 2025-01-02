@@ -1,19 +1,20 @@
-﻿namespace ToDoListWebApp.Models
+﻿using System.ComponentModel.DataAnnotations;
+namespace ToDoListWebApp.Models
 {
     public class ToDoListItem
     {
 
-        public static int _idCounter = 0;
 
+        [Key]
         public int ID { get; set; }
+
+        [Required]
         public string Task { get; set; }
         public bool IsCompleted { get; set; }
 
         public ToDoListItem()
         {
-            ID = ++_idCounter; // Automatically increment ID
-            Task = "N/A";
-            IsCompleted = false;
+            
         }
 
         public ToDoListItem(string task) : this()

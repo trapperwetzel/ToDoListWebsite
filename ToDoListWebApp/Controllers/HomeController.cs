@@ -8,36 +8,42 @@ namespace ToDoListWebApp.Controllers
     {
         private readonly ILogger<HomeController> _logger;
 
-        public HomeController(ILogger<HomeController> logger)
+     
+        private readonly ToDoListContext _context;
+
+        public HomeController(ILogger<HomeController> logger, ToDoListContext context)
         {
             _logger = logger;
+            _context = context;
         }
-
         public IActionResult Index()
         {
-            return View(UserToDoList.UserList);
+            var userList = _context.ToDoListItems.ToList();
+            return View(userList);
         }
 
         public IActionResult AddTask(string task)
         {
-            var taskListItem = new ToDoListItem { Task = task };
-            var userToDoList = new UserToDoList();
-            userToDoList.AddItem(taskListItem);
+
+            if (!string.IsNullOrWhiteSpace(task))
+            {
+                var newTask = new ToDoListItem { Task = task, IsCompleted = false };
+                _context.ToDoListItems.Add(newTask);
+                _context.SaveChanges();
+            }
 
             return RedirectToAction("Index");
+            
         }
 
         public IActionResult MarkAsCompleted(int id)
         {
-            
-            var task = UserToDoList.UserList.FirstOrDefault(t => t.ID == id);
-
+            var task = _context.ToDoListItems.FirstOrDefault(t => t.ID == id);
             if (task != null)
             {
                 task.IsCompleted = true;
+                _context.SaveChanges(); // Commit the changes
             }
-
-            
             return RedirectToAction("Index");
         }
 
