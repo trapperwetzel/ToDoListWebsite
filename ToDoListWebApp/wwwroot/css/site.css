@@ -21,22 +21,30 @@ html {
 }
 
 body {
+
   margin-bottom: 60px;
   background-color: beige;
 }
 
+.container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+
+}
 
 
 /* CSS for To-Do-List form below: */
 
 
-.mainToDoForm{
-   
-   
-   padding: 50px;
-}
+
 
 #todotitle {
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
     font-family: "Times New Roman", Times, serif;
     font-size: 60px;
     letter-spacing: 2px;
@@ -54,19 +62,6 @@ body {
     text-align: center;
 }
 
-#todothankyoumessage {
-    font-family: "Times New Roman", Times, serif;
-    font-size: 40px;
-    letter-spacing: 2px;
-    word-spacing: 2px;
-    color: #000000;
-    font-weight: 400;
-    text-decoration: rgb(68, 68, 68);
-    font-style: italic;
-    font-variant: small-caps;
-    text-align: center;
-    text-transform: none;
-}
 
 #todomessage {
     font-family: "Times New Roman", Times, serif;
@@ -83,18 +78,16 @@ body {
 }
 
 .submittaskbutton {
- 
-   
+    display: flex;
+    justify-content: center;
+    align-items: center;
     color: black;
-    font-size: 20px;
-    line-height: 16px;
-    padding: 7px;
-    border-radius: 5px;
+    font-size: 30px;
+    
+    
     font-family: "Times New Roman", Times, serif;
     font-weight: 300;
     text-decoration: black;
-    
-   
 }
 
 .submittaskbutton:hover {
@@ -118,18 +111,27 @@ body {
 
 /* CSS for Users Printed List*/
 
-.listitle{
+.listitle {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     text-align: center;
     font-family: 'Times New Roman', Times, serif;
-    font-size:40px;
-    
-    
+    font-size: 40px;
+    font-style: italic;
+    font-variant: small-caps;
 }
 
 .userlist {
-    font-size:30px;
-    font-family:'Times New Roman', Times, serif;
-    outline: 2px solid #000000;
-    outline-offset: 0px;
+    
+    font-style: italic;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 30px;
+    font-family: 'Times New Roman', Times, serif;
+}
 
+.userTableEntrys {
+   
 }

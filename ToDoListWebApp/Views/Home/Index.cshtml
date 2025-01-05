@@ -11,7 +11,7 @@
 <div class= "mainToDoForm">
 
     <h1 id="todotitle">To-Do-List</h1>
-    <h2 id ="todothankyoumessage">Thank you for using this website!</h2>
+    
     <h3 id="todomessage">Enter your tasks below</h3>
 
 
@@ -42,10 +42,11 @@
                 <th></th>
             </tr>
         </thead>
-        <tbody>
+
+        <tbody class="userTable">
             @foreach (var item in Model)
             {
-                <tr>
+                <tr class="userTableEntrys">
                     
                     <td>@item.Task</td>
                     <td>@(item.IsCompleted ? "Yes" : "No")</td>
