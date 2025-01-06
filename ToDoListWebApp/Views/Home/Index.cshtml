@@ -12,7 +12,7 @@
 
     <h1 id="todotitle">To-Do-List</h1>
     
-    <h3 id="todomessage">Enter your tasks below</h3>
+    <h3 id="todomessage"></h3>
 
 
 
@@ -20,7 +20,7 @@
 
 
     <form method= "post" action = "/Home/AddTask">
-    <div class="form-group">
+    <div class="taskForm">
         <input type ="text" name="task" class="form-control" placeholder="Enter a new task" required />
     </div>    
     <button type="submit" class="submittaskbutton">Add Task</button>
@@ -33,8 +33,8 @@
 
 <div class="userlist">
     <h3></h3>
-    <table class="table">
-        <thead>
+    <table class="userTable">
+        <thead id = "tableHeader">
             <tr>
                 
                 <th>Task</th>
@@ -42,33 +42,34 @@
                 <th></th>
             </tr>
         </thead>
-
-        <tbody class="userTable">
-            @foreach (var item in Model)
-            {
-                <tr class="userTableEntrys">
+           <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
                     
-                    <td>@item.Task</td>
-                    <td>@(item.IsCompleted ? "Yes" : "No")</td>
-                    <td>
-                        @if (!item.IsCompleted)
-                        {
-                            <!-- Form to Mark as Completed -->
-                            <form method="post" action="/Home/MarkAsCompleted">
-                                <input type="hidden" name="id" value="@item.ID" />
-                                <button type="submit" class="btn btn-success">Mark as Completed</button>
-                            </form>
-                        }
-                    </td>
+                        <td>@item.Task</td>
+                        <td>@(item.IsCompleted ? "Yes" : "No")</td>
+                        <td>
+                            @if (!item.IsCompleted)
+                            {
+                                <!-- Form to Mark as Completed -->
+                                <form method="post" action="/Home/MarkAsCompleted">
+                                    <input type="hidden" name="id" value="@item.ID" />
+                                    <button type="submit" class="btn btn-success">Mark as Completed</button>
+                                </form>
+                            }
+                        </td>
 
-                    <td>
-                        <form method="post" action ="/Home/RemoveTask">
-                            <input type = "hidden" name="id" value="@item.ID" />
-                            <button type="submit" class="btn btn-danger">Remove from List</button>
-                        </form>
-                    </td>
-                </tr>
-            }
-        </tbody>
+                        <td>
+                            <form method="post" action ="/Home/RemoveTask">
+                                <input type = "hidden" name="id" value="@item.ID" />
+                                <button type="submit" class="btn btn-danger">Remove from List</button>
+                            </form>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+            
+          </div>
     </table>
 </div>

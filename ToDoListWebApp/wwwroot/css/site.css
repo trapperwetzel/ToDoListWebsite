@@ -27,9 +27,9 @@ body {
 }
 
 .container{
-    display: flex;
-    justify-content: center;
-    align-items: center;
+   display:flex;
+   justify-content: center;
+   align-items: center;
 
 
 }
@@ -37,27 +37,26 @@ body {
 
 /* CSS for To-Do-List form below: */
 
-
+.mainToDoForm {
+    display: flex;
+    flex-direction: column; 
+    justify-content: center; 
+    align-items: center; 
+    
+}
 
 
 #todotitle {
 
-    display: flex;
-    justify-content: center;
-    align-items: center;
+   
     font-family: "Times New Roman", Times, serif;
     font-size: 60px;
     letter-spacing: 2px;
     word-spacing: 2px;
     color: #000000;
     font-weight: 400;
-    text-decoration: rgb(68, 68, 68);
     font-style: italic;
     font-variant: small-caps;
-    text-transform: none;
-    position: absolute;
-    top:55px;
-    left: 0;
     width: 100%;
     text-align: center;
 }
@@ -77,39 +76,90 @@ body {
     text-transform: none;
 }
 
+
+
+.taskForm {
+    
+    
+   
+}
+
+
+
+
+
+.submittaskbutton,
+.submittaskbutton *,
+.submittaskbutton :after,
+.submittaskbutton :before,
+.submittaskbutton:after,
+.submittaskbutton:before {
+    border: 0 solid;
+    box-sizing: border-box;
+    text-align: center;
+}
+
 .submittaskbutton {
     display: flex;
     justify-content: center;
     align-items: center;
-    color: black;
-    font-size: 30px;
-    
-    
+    -webkit-tap-highlight-color: transparent;
+    -webkit-appearance: button;
+    background-color: black; /* Button background color */
     font-family: "Times New Roman", Times, serif;
-    font-weight: 300;
-    text-decoration: black;
+    font-size: 20px;
+    letter-spacing: 3px;
+    word-spacing: 2px;
+    color: white;
+    font-weight: 700;
+    text-decoration: rgb(68, 68, 68);
+    font-style: italic;
+    font-variant: normal;
+    text-transform: uppercase;
+    text-align: center;
+    width:500px;
 }
 
-.submittaskbutton:hover {
-        background: #808080
+.submittaskbutton:disabled {
+        cursor: default; /* Disabled button cursor */
     }
 
-.submittaskbutton:active {
-      background:blue;
+.submittaskbutton:-moz-focusring {
+        outline: auto; /* Outline for accessibility */
     }
 
 
-.navbartest {
-    font-family: 'Times New Roman', Times, serif;
-    display: flex;
-    justify-content:center;
-    align-items: center;
+
+.submittaskbutton[hidden] {
+        display: none; /* Hide element when "hidden" attribute is present */
+    }
+
+.submittaskbutton {
+    border-radius: 99rem; /* Rounded corners */
+    border-width: 2px;
+
+    /* Padding for size */
+    padding-right: 100px;
+    padding-left: 100px;
     
 }
+
+    .submittaskbutton:hover {
+        color: #999; /* Text color on hover */
+    }
+
+
+
+
+
+
+
 
 
 
 /* CSS for Users Printed List*/
+
+
 
 .listitle {
     display: flex;
@@ -122,6 +172,8 @@ body {
     font-variant: small-caps;
 }
 
+
+
 .userlist {
     
     font-style: italic;
@@ -132,6 +184,41 @@ body {
     font-family: 'Times New Roman', Times, serif;
 }
 
-.userTableEntrys {
-   
+
+#tableHeader{
+    border-bottom-width: 1px;
+    padding: 10px;
 }
+
+.userTable
+{
+    width:100%;
+    border-collapse: collapse;
+}
+
+.userTable tr 
+{
+        border-bottom: 1px solid black;
+}
+
+
+.userTable th
+{
+
+    
+}
+
+
+ .userTable td 
+ {
+        border-right: 1px solid black;
+        border-left: 1px solid black;
+}
+
+.userTable th, .userTable td 
+{
+        
+        padding: 8px 12px; /* Adds consistent padding */
+        text-align: left; /* Aligns content to the left */
+}
+
